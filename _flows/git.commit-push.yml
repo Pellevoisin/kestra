@@ -1,0 +1,18 @@
+id: commit-push
+namespace: git
+
+inputs:
+  - name: commit_message
+    type: STRING
+    defaults: add a new file to Git
+
+tasks:
+  - id: commit_and_push
+    type: io.kestra.plugin.git.Push
+    url: https://github.com/Pellevoisin/kestra
+    branch: main
+    username: Pellevoisin
+    password: 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
+    commitMessage: "{{ inputs.commit_message }}"
+    addFilesPattern:
+          - .
